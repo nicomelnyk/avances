@@ -1,0 +1,327 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{11BD0A38-F064-4794-9845-D4C99E7D45E9}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FrbaCrucero</RootNamespace>
+    <AssemblyName>FrbaCrucero</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AbmCrucero\Baja\BajaCrucero.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AbmCrucero\Baja\BajaCrucero.Designer.cs">
+      <DependentUpon>BajaCrucero.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AbmCrucero\Baja\BajaError.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AbmCrucero\Baja\BajaError.Designer.cs">
+      <DependentUpon>BajaError.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AbmCrucero\Baja\BajaFin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AbmCrucero\Baja\BajaFin.Designer.cs">
+      <DependentUpon>BajaFin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AbmCrucero\Baja\BajaSeleccionarFecha.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AbmCrucero\Baja\BajaSeleccionarFecha.Designer.cs">
+      <DependentUpon>BajaSeleccionarFecha.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AbmCrucero\CruceroListado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AbmCrucero\CruceroListado.Designer.cs">
+      <DependentUpon>CruceroListado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AbmCrucero\Incorporar\CargarCabinas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AbmCrucero\Incorporar\CargarCabinas.Designer.cs">
+      <DependentUpon>CargarCabinas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AbmCrucero\Incorporar\IncorporarError.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AbmCrucero\Incorporar\IncorporarError.Designer.cs">
+      <DependentUpon>IncorporarError.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AbmCrucero\Incorporar\IncorporacionAceptada.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AbmCrucero\Incorporar\IncorporacionAceptada.Designer.cs">
+      <DependentUpon>IncorporacionAceptada.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AbmCrucero\Incorporar\IncorporarCrucero.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AbmCrucero\Incorporar\IncorporarCrucero.Designer.cs">
+      <DependentUpon>IncorporarCrucero.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AbmCrucero\Crucero.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AbmCrucero\Crucero.Designer.cs">
+      <DependentUpon>Crucero.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AbmCrucero\Modificar\ModificarCrucero.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AbmCrucero\Modificar\ModificarCrucero.Designer.cs">
+      <DependentUpon>ModificarCrucero.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AbmPuerto\AbmPuerto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AbmPuerto\AbmPuerto.Designer.cs">
+      <DependentUpon>AbmPuerto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AbmPuerto\AltaPuerto\CrearPuerto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AbmPuerto\AltaPuerto\CrearPuerto.Designer.cs">
+      <DependentUpon>CrearPuerto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AbmPuerto\BajaPuerto\BajaPuerto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AbmPuerto\BajaPuerto\BajaPuerto.Designer.cs">
+      <DependentUpon>BajaPuerto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AbmPuerto\ModificarPuerto\ModificarPuerto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AbmPuerto\ModificarPuerto\ModificarPuerto.Designer.cs">
+      <DependentUpon>ModificarPuerto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AbmPuerto\PuertoListado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AbmPuerto\PuertoListado.Designer.cs">
+      <DependentUpon>PuertoListado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AbmRol\ListadoRol.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AbmRol\ListadoRol.Designer.cs">
+      <DependentUpon>ListadoRol.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AbmRol\Crear\FinRol.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AbmRol\Crear\FinRol.Designer.cs">
+      <DependentUpon>FinRol.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AbmRol\Crear\CrearRol.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AbmRol\Crear\CrearRol.Designer.cs">
+      <DependentUpon>CrearRol.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AbmRol\Modificar\ModificarRol.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AbmRol\Modificar\ModificarRol.Designer.cs">
+      <DependentUpon>ModificarRol.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AbmRol\Rol.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AbmRol\Rol.Designer.cs">
+      <DependentUpon>Rol.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Conexion\Conexion.cs" />
+    <Compile Include="GD1C2019DataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GD1C2019DataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="LoginYSeguridad\EntidadUsuario.cs" />
+    <Compile Include="LoginYSeguridad\Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginYSeguridad\Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GeneracionViaje\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GeneracionViaje\Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ListadoEstadistico\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ListadoEstadistico\Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoginYSeguridad\LoginAdministrativo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginYSeguridad\LoginAdministrativo.Designer.cs">
+      <DependentUpon>LoginAdministrativo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PagoReserva\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PagoReserva\Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AbmCrucero\Baja\BajaCrucero.resx">
+      <DependentUpon>BajaCrucero.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AbmCrucero\Baja\BajaError.resx">
+      <DependentUpon>BajaError.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AbmCrucero\Baja\BajaFin.resx">
+      <DependentUpon>BajaFin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AbmCrucero\Baja\BajaSeleccionarFecha.resx">
+      <DependentUpon>BajaSeleccionarFecha.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AbmCrucero\CruceroListado.resx">
+      <DependentUpon>CruceroListado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AbmCrucero\Incorporar\CargarCabinas.resx">
+      <DependentUpon>CargarCabinas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AbmCrucero\Incorporar\IncorporarError.resx">
+      <DependentUpon>IncorporarError.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AbmCrucero\Incorporar\IncorporacionAceptada.resx">
+      <DependentUpon>IncorporacionAceptada.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AbmCrucero\Incorporar\IncorporarCrucero.resx">
+      <DependentUpon>IncorporarCrucero.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AbmCrucero\Crucero.resx">
+      <DependentUpon>Crucero.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AbmCrucero\Modificar\ModificarCrucero.resx">
+      <DependentUpon>ModificarCrucero.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AbmPuerto\AbmPuerto.resx">
+      <DependentUpon>AbmPuerto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AbmPuerto\AltaPuerto\CrearPuerto.resx">
+      <DependentUpon>CrearPuerto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AbmPuerto\BajaPuerto\BajaPuerto.resx">
+      <DependentUpon>BajaPuerto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AbmPuerto\ModificarPuerto\ModificarPuerto.resx">
+      <DependentUpon>ModificarPuerto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AbmPuerto\PuertoListado.resx">
+      <DependentUpon>PuertoListado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AbmRol\Crear\CrearRol.resx">
+      <DependentUpon>CrearRol.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AbmRol\Crear\FinRol.resx">
+      <DependentUpon>FinRol.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AbmRol\Modificar\ModificarRol.resx">
+      <DependentUpon>ModificarRol.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AbmRol\Rol.resx">
+      <DependentUpon>Rol.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AbmRol\ListadoRol.resx">
+      <DependentUpon>ListadoRol.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginYSeguridad\Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginYSeguridad\LoginAdministrativo.resx">
+      <DependentUpon>LoginAdministrativo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="GD1C2019DataSet1.xsc">
+      <DependentUpon>GD1C2019DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="GD1C2019DataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GD1C2019DataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GD1C2019DataSet1.xss">
+      <DependentUpon>GD1C2019DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="AbmRecorrido\" />
+    <Folder Include="CompraReservaPasaje\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
