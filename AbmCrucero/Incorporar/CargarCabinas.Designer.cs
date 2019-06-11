@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.cargarCab = new System.Windows.Forms.GroupBox();
+            this.cabPiso = new System.Windows.Forms.Label();
             this.pisoCabina = new System.Windows.Forms.Label();
             this.nroCabina = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -37,9 +38,7 @@
             this.Finalizar = new System.Windows.Forms.Button();
             this.cargar_cabinas = new System.Windows.Forms.Button();
             this.limpiar = new System.Windows.Forms.Button();
-            this.piso = new System.Windows.Forms.Label();
             this.nro = new System.Windows.Forms.Label();
-            this.cabPiso = new System.Windows.Forms.Label();
             this.cargarCab.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -54,14 +53,22 @@
             this.cargarCab.Controls.Add(this.Finalizar);
             this.cargarCab.Controls.Add(this.cargar_cabinas);
             this.cargarCab.Controls.Add(this.limpiar);
-            this.cargarCab.Controls.Add(this.piso);
             this.cargarCab.Controls.Add(this.nro);
             this.cargarCab.Location = new System.Drawing.Point(12, 12);
             this.cargarCab.Name = "cargarCab";
             this.cargarCab.Size = new System.Drawing.Size(358, 229);
             this.cargarCab.TabIndex = 1;
             this.cargarCab.TabStop = false;
-            this.cargarCab.Text = "Cargar Cabinas";
+            this.cargarCab.Text = "Cargar Cabiams";
+            // 
+            // cabPiso
+            // 
+            this.cabPiso.AutoSize = true;
+            this.cabPiso.Location = new System.Drawing.Point(217, 72);
+            this.cabPiso.Name = "cabPiso";
+            this.cabPiso.Size = new System.Drawing.Size(85, 17);
+            this.cabPiso.TabIndex = 16;
+            this.cabPiso.Text = "Piso cabina:";
             // 
             // pisoCabina
             // 
@@ -144,13 +151,6 @@
             this.limpiar.UseVisualStyleBackColor = true;
             this.limpiar.Click += new System.EventHandler(this.limpiar_Click);
             // 
-            // piso
-            // 
-            this.piso.Location = new System.Drawing.Point(0, 0);
-            this.piso.Name = "piso";
-            this.piso.Size = new System.Drawing.Size(100, 23);
-            this.piso.TabIndex = 15;
-            // 
             // nro
             // 
             this.nro.AutoSize = true;
@@ -159,15 +159,6 @@
             this.nro.Size = new System.Drawing.Size(128, 17);
             this.nro.TabIndex = 0;
             this.nro.Text = "Número de cabina:";
-            // 
-            // cabPiso
-            // 
-            this.cabPiso.AutoSize = true;
-            this.cabPiso.Location = new System.Drawing.Point(217, 72);
-            this.cabPiso.Name = "cabPiso";
-            this.cabPiso.Size = new System.Drawing.Size(85, 17);
-            this.cabPiso.TabIndex = 16;
-            this.cabPiso.Text = "Piso cabina:";
             // 
             // CargarCabinas
             // 
@@ -190,7 +181,6 @@
         private System.Windows.Forms.Button Finalizar;
         private System.Windows.Forms.Button cargar_cabinas;
         private System.Windows.Forms.Button limpiar;
-        private System.Windows.Forms.Label piso;
         private System.Windows.Forms.Label nro;
         private System.Windows.Forms.ComboBox tipoCab;
         private System.Windows.Forms.Label pisoCabina;

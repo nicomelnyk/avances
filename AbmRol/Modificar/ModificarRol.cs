@@ -20,6 +20,9 @@ namespace FrbaCrucero
         string nombr;
         string func;
 
+        string cliente = "Cliente";
+        string administrativo = "Administrativo";
+
         public ModificarRol(string v1, string v2)
         {
             InitializeComponent();
@@ -56,9 +59,7 @@ namespace FrbaCrucero
 
         private void buscar_Click(object sender, EventArgs e)
         {
-            //ErrorEliminar errorE = new ErrorEliminar();
-            //errorE.Visible = true;
-            //this.Dispose(false);
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -78,21 +79,55 @@ namespace FrbaCrucero
 
         private void modificarNombre()
         {
-            SqlCommand cmd = new SqlCommand("ZAFFA_TEAM.sp_updateNombreRol", ClaseConexion.conexion);
+            // CREO UN NUEVO ROL CON MISMO NOMBRE Y ESTADO
+            SqlCommand cmd = new SqlCommand("ZAFFA_TEAM.sp_guardarRol", ClaseConexion.conexion);
 
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@nombre_rol", nuevoNombre.Text);
-            cmd.Parameters.AddWithValue("@nombre_viejo", nom);
+            cmd.Parameters.AddWithValue("@estado_rol", funcionalidad);
 
             cmd.ExecuteReader().Close();
 
-            cmd = new SqlCommand("ZAFFA_TEAM.sp_updateNombreFuncionalidadxRol", ClaseConexion.conexion);
+            // ACTUALIZO SUS FUNCIONALIDADES
+            SqlCommand cmd2 = new SqlCommand("ZAFFA_TEAM.sp_updateNombreFuncionalidadxRol", ClaseConexion.conexion);
 
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@nombre_rol", nuevoNombre.Text);
-            cmd.Parameters.AddWithValue("@nombre_viejo", nom);
+            cmd2.CommandType = CommandType.StoredProcedure;
+            cmd2.Parameters.AddWithValue("@nombre_rol", nuevoNombre.Text);
+            cmd2.Parameters.AddWithValue("@nombre_viejo", nom);
+         
+            cmd2.ExecuteReader().Close();
 
-            cmd.ExecuteReader().Close();
+
+            if (string.Compare(nom, cliente)==0) {
+                SqlCommand cmd4 = new SqlCommand("ZAFFA_TEAM.sp_updatClienteRol", ClaseConexion.conexion);
+
+                cmd4.CommandType = CommandType.StoredProcedure;
+                cmd4.Parameters.AddWithValue("@nombre_rol", nuevoNombre.Text);
+                cmd4.Parameters.AddWithValue("@nombre_original", cliente);
+                cliente = nuevoNombre.Text;
+
+                cmd4.ExecuteReader().Close();
+            }
+            if (string.Compare(nom, administrativo) == 0)
+            {
+                
+                SqlCommand cmd5 = new SqlCommand("ZAFFA_TEAM.sp_updateAdministradorRol", ClaseConexion.conexion);
+
+                cmd5.CommandType = CommandType.StoredProcedure;
+                cmd5.Parameters.AddWithValue("@nombre_rol", nuevoNombre.Text);
+                cmd5.Parameters.AddWithValue("@nombre_original", administrativo);
+                administrativo = nuevoNombre.Text;
+
+                cmd5.ExecuteReader().Close();
+            }
+
+            // BORRO ROL VIEJO
+            SqlCommand cmd3 = new SqlCommand("ZAFFA_TEAM.sp_deleteRol", ClaseConexion.conexion);
+
+            cmd3.CommandType = CommandType.StoredProcedure;
+            cmd3.Parameters.AddWithValue("@nombre_rol", nom);
+
+            cmd3.ExecuteReader().Close();
         }
 
         private void button2_Click_1(object sender, EventArgs e)

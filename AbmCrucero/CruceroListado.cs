@@ -64,9 +64,7 @@ namespace FrbaCrucero
         {
             listadoCruceros.Rows.Clear();
 
-            string query = "SELECT * FROM ZAFFA_TEAM.Crucero WHERE crucero_id LIKE '%" + seleccionarID.Text + "%'" + "and crucero_modelo LIKE '%" + seleccionarModelo.Text + "%'";
-            
-            
+            string query = "SELECT * FROM ZAFFA_TEAM.Crucero WHERE crucero_id LIKE '%" + seleccionarID.Text + "%'" + "and crucero_modelo LIKE '%" + seleccionarModelo.Text + "%'";      
 
             if (string.Compare(seleccionarFabricante.Text,"")!=0)
             {

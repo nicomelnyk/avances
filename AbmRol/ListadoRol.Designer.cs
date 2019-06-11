@@ -134,6 +134,7 @@
             this.Controls.Add(this.label1);
             this.Name = "ListadoRol";
             this.Text = "UTN FRBA";
+            this.Load += new System.EventHandler(this.ListadoRol_Load);
             ((System.ComponentModel.ISupportInitialize)(this.listadoRoles)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

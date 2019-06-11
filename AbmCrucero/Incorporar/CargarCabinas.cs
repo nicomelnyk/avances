@@ -50,17 +50,12 @@ namespace FrbaCrucero
                     nroCabina.Text = cab.ToString();
                     pisoCabina.Text = piso_cab.ToString();
                     tipoCab.ResetText();
-                    //this.Close();
-                    //CargarCabinas cabinas = new CargarCabinas(nombreID.Text);
-                    //cabinas.Visible = true;
-                    //this.Dispose(false);
                 }
                 catch (SqlException)
                 {
                     MessageBox.Show("Error al cargar la cabina", "Error");
                 }
             }
-            // SE CARGAN LOS DATOS A LA BDD
         }
 
         private void guardarCabina()
@@ -74,11 +69,29 @@ namespace FrbaCrucero
             cmd.Parameters.AddWithValue("@cabina_tipo_id", 2);
 
             cmd.ExecuteReader().Close();
-            MessageBox.Show("guardando cab", "loading");
+        }
+
+        private void guardarCabinaContador()
+        {
+            SqlCommand cmd = new SqlCommand("ZAFFA_TEAM.sp_updateCantCabinas", ClaseConexion.conexion);
+
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@cant_cabinas", cab - 1);
+            cmd.Parameters.AddWithValue("@crucero_id", id);
+
+            cmd.ExecuteReader().Close();
         }
 
         private void Finalizar_Click(object sender, EventArgs e)
         {
+            try
+            {
+                this.guardarCabinaContador();
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Error al asociar las cabinas al crucero", "Error");
+            }
             IncorporacionAceptada aceptar = new IncorporacionAceptada();
             aceptar.Visible = true;
             this.Dispose(false);

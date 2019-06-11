@@ -253,6 +253,83 @@ GO
 ----
 
 GO
+CREATE PROCEDURE ZAFFA_TEAM.sp_updatClienteRol(@nombre_rol nvarchar(50),@nombre_original nvarchar(50))
+AS
+	BEGIN TRANSACTION tr	
+
+	BEGIN TRY
+
+		UPDATE ZAFFA_TEAM.Cliente
+		SET NOMBRE_ROL = @nombre_rol
+		WHERE NOMBRE_ROL = 'Cliente'
+		
+		
+	END TRY
+	BEGIN CATCH
+		ROLLBACK TRANSACTION tr
+		DECLARE @mensaje VARCHAR(255) = ERROR_MESSAGE()
+		RAISERROR(@mensaje,11,0)
+
+		RETURN
+	END CATCH
+
+	COMMIT TRANSACTION tr
+GO
+
+----
+
+GO
+CREATE PROCEDURE ZAFFA_TEAM.sp_updateAdministradorRol(@nombre_rol nvarchar(50),@nombre_original nvarchar(50))
+AS
+	BEGIN TRANSACTION tr	
+
+	BEGIN TRY
+
+		UPDATE ZAFFA_TEAM.Administrativo
+		SET NOMBRE_ROL = @nombre_rol
+		WHERE NOMBRE_ROL = @nombre_original
+		
+		
+	END TRY
+	BEGIN CATCH
+		ROLLBACK TRANSACTION tr
+		DECLARE @mensaje VARCHAR(255) = ERROR_MESSAGE()
+		RAISERROR(@mensaje,11,0)
+
+		RETURN
+	END CATCH
+
+	COMMIT TRANSACTION tr
+GO
+
+----
+
+GO
+CREATE PROCEDURE ZAFFA_TEAM.sp_deleteRol(@nombre_rol nvarchar(50))
+AS
+	BEGIN TRANSACTION tr	
+
+	BEGIN TRY
+
+		DELETE FROM ZAFFA_TEAM.Rol
+		WHERE NOMBRE_ROL = @nombre_rol
+		
+		
+	END TRY
+	BEGIN CATCH
+		ROLLBACK TRANSACTION tr
+		DECLARE @mensaje VARCHAR(255) = ERROR_MESSAGE()
+		RAISERROR(@mensaje,11,0)
+
+		RETURN
+	END CATCH
+
+	COMMIT TRANSACTION tr
+GO
+
+----
+
+GO
 CREATE PROCEDURE ZAFFA_TEAM.sp_guardarFuncionalidadxRol(@nombre_rol nvarchar(50),@funcionalidad int)
 AS
 	BEGIN TRANSACTION tr	
@@ -261,6 +338,32 @@ AS
 
 		INSERT INTO ZAFFA_TEAM.[Funcionalidad x Rol](NOMBRE_ROL,FUNCIONALIDAD) 
 		VALUES (@nombre_rol,@funcionalidad)
+		
+		
+	END TRY
+	BEGIN CATCH
+		ROLLBACK TRANSACTION tr
+		DECLARE @mensaje VARCHAR(255) = ERROR_MESSAGE()
+		RAISERROR(@mensaje,11,0)
+
+		RETURN
+	END CATCH
+
+	COMMIT TRANSACTION tr
+GO
+
+----
+
+GO
+CREATE PROCEDURE ZAFFA_TEAM.sp_updateCantCabinas(@cant_cabinas int,@crucero_id nvarchar(50))
+AS
+	BEGIN TRANSACTION tr	
+
+	BEGIN TRY
+
+		UPDATE ZAFFA_TEAM.Crucero
+		SET CANTIDAD_CABINAS = @cant_cabinas
+		WHERE CRUCERO_ID = @crucero_id
 		
 		
 	END TRY
@@ -428,6 +531,58 @@ GO
 
 ----
 
+GO
+CREATE PROCEDURE ZAFFA_TEAM.sp_guardarViaj(@recorrido_codigo decimal(18,0), @fecha_salida datetime2(3), @fecha_llegada datetime2(3), @fecha_llegada_estimada datetime2(3), @crucero_id nvarchar(50))
+AS
+	BEGIN TRANSACTION tr	
+
+	BEGIN TRY
+
+		INSERT INTO ZAFFA_TEAM.Viaje(RECORRIDO_CODIGO,FECHA_SALIDA,FECHA_LLEGADA,FECHA_LLEGADA_ESTIMADA,CRUCERO_ID) 
+		VALUES (@recorrido_codigo,@fecha_salida,@fecha_llegada,@fecha_llegada_estimada,@crucero_id)
+		
+		
+	END TRY
+	BEGIN CATCH
+		ROLLBACK TRANSACTION tr
+		DECLARE @mensaje VARCHAR(255) = ERROR_MESSAGE()
+		RAISERROR(@mensaje,11,0)
+
+		RETURN
+	END CATCH
+
+	COMMIT TRANSACTION tr
+GO
+
+----
+
+@crucero_id @fecha_salida @fecha_llegada
+SELECT count(*)
+FROM ZAFFA_TEAM.Viaje
+WHERE CRUCERO_ID = @crucero_id AND
+(
+@fecha_desde BETWEEN FECHA_SALIDA AND FECHA_LLEGADA 
+OR
+@fecha_llegada BETWEEN FECHA_SALIDA AND FECHA_LLEGADA 
+)
+
+SELECT count(*) FROM ZAFFA_TEAM.Viaje WHERE CRUCERO_ID = 'aprobargestion' 
+AND ( 
+'2019-06-28 00:00:00.000' BETWEEN FECHA_SALIDA AND FECHA_LLEGADA OR 
+'2019-06-29 00:00:00.000' BETWEEN FECHA_SALIDA AND FECHA_LLEGADA )
+
+@crucero_id @fecha_salida @fecha_llegada
+SELECT count(*)
+FROM ZAFFA_TEAM.Viaje
+WHERE CRUCERO_ID = 'aprobargestion' AND
+(
+'12/06/2019 0:00:00' BETWEEN FECHA_SALIDA AND FECHA_LLEGADA 
+OR
+'21/06/2019 0:00:00' BETWEEN FECHA_SALIDA AND FECHA_LLEGADA 
+)
+
+----
+
 SELECT * 
 FROM ZAFFA_TEAM.Cliente
 
@@ -444,6 +599,9 @@ SELECT *
 FROM ZAFFA_TEAM.Funcionalidad
 
 SELECT * 
+FROM ZAFFA_TEAM.Viaje
+
+SELECT * 
 FROM ZAFFA_TEAM.Crucero
 
 SELECT * 
@@ -454,6 +612,8 @@ FROM ZAFFA_TEAM.Tipo_Cabina
 
 SELECT * 
 FROM ZAFFA_TEAM.Cabina
+
+select * from ZAFFA_TEAM.Recorrido_Unico
 
 SELECT DISTINCT CRUCERO_IDENTIFICADOR,CABINA_NRO,CABINA_PISO
 FROM gd_esquema.Maestra

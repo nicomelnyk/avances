@@ -62,7 +62,6 @@ namespace FrbaCrucero
                 {
                     string query = "SELECT CRUCERO_MARCA_ID FROM ZAFFA_TEAM.Marca WHERE crucero_fabricante LIKE '%" + fabricanteCru.Text + "%'";
                     obtenerIdFab(ClaseConexion.ResolverConsulta(query));
-                    //MessageBox.Show("Crucero guardado correctamente", id.ToString());
                     this.guardarCrucero();
                     MessageBox.Show("Crucero guardado correctamente", "Ok");
                     CargarCabinas cabinas = new CargarCabinas(nombreID.Text);

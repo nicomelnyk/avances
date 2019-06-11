@@ -37,12 +37,13 @@
             this.limpiar = new System.Windows.Forms.Button();
             this.nombreID = new System.Windows.Forms.TextBox();
             this.fabricante = new System.Windows.Forms.Label();
-            //this.id = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.crear_rol.SuspendLayout();
             this.SuspendLayout();
             // 
             // crear_rol
             // 
+            this.crear_rol.Controls.Add(this.label1);
             this.crear_rol.Controls.Add(this.fabricanteCru);
             this.crear_rol.Controls.Add(this.modeloCru);
             this.crear_rol.Controls.Add(this.modelo);
@@ -51,7 +52,6 @@
             this.crear_rol.Controls.Add(this.limpiar);
             this.crear_rol.Controls.Add(this.nombreID);
             this.crear_rol.Controls.Add(this.fabricante);
-            //this.crear_rol.Controls.Add(this.id);
             this.crear_rol.Location = new System.Drawing.Point(12, 12);
             this.crear_rol.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.crear_rol.Name = "crear_rol";
@@ -151,9 +151,14 @@
             this.fabricante.Text = "Fabricante:";
             this.fabricante.Click += new System.EventHandler(this.label1_Click_1);
             // 
-            // id
+            // label1
             // 
-           
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(35, 30);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(79, 17);
+            this.label1.TabIndex = 13;
+            this.label1.Text = "ID Crucero:";
             // 
             // IncorporarCrucero
             // 
@@ -183,5 +188,6 @@
         private System.Windows.Forms.TextBox modeloCru;
         private System.Windows.Forms.Label modelo;
         private System.Windows.Forms.ComboBox fabricanteCru;
+        private System.Windows.Forms.Label label1;
     }
 }

@@ -20,8 +20,8 @@ namespace FrbaCrucero
 
         private void inicio_Click(object sender, EventArgs e)
         {
-            IncorporarCrucero incorporar = new IncorporarCrucero();
-            incorporar.Visible = true;
+            Crucero cru = new Crucero();
+            cru.Visible = true;
             this.Dispose(false);
         }
 

@@ -102,3 +102,5 @@ C:\Users\nicol\Desktop\tp gdd5\TP-Gestion\FrbaCrucero\obj\Debug\FrbaCrucero.Logi
 C:\Users\nicol\Desktop\tp gdd5\TP-Gestion\FrbaCrucero\obj\Debug\FrbaCrucero.Properties.Resources.resources
 C:\Users\nicol\Desktop\tp gdd5\TP-Gestion\FrbaCrucero\obj\Debug\FrbaCrucero.csproj.GenerateResource.Cache
 C:\Users\nicol\Desktop\tp gdd5\TP-Gestion\FrbaCrucero\obj\Debug\FrbaCrucero.ListadoRol.resources
+C:\Users\nicol\Desktop\tp gdd5\TP-Gestion\FrbaCrucero\obj\Debug\FrbaCrucero.GeneracionViaje.resources
+C:\Users\nicol\Desktop\tp gdd5\TP-Gestion\FrbaCrucero\obj\Debug\FrbaCrucero.ListadoEstadistico.ListadoEstadistico.resources

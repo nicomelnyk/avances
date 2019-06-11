@@ -120,5 +120,10 @@ namespace FrbaCrucero
             rol.Visible = true;
             this.Dispose(false);
         }
+
+        private void ListadoRol_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
